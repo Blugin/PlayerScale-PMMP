@@ -1,0 +1,30 @@
+---
+name:             PlayerScale
+main:             presentkim\playerscale\PlayerScaleMain
+version:          1.0.0
+api:              [3.0.0, 3.0.0-ALPHA10]
+author:           PresentKim
+
+permissions:
+  playerscale.cmd:
+    description:  PlayerScale main command
+    default:      op
+  playerscale.default.cmd:
+    description:  PlayerScale default command
+    default:      op
+  playerscale.set.cmd:
+    description:  PlayerScale set command
+    default:      op
+  playerscale.list.cmd:
+    description:  PlayerScale list command
+    default:      op
+  playerscale.lang.cmd:
+    description:  PlayerScale lang command
+    default:      op
+  playerscale.reload.cmd:
+    description:  PlayerScale reload command
+    default:      op
+  playerscale.save.cmd:
+    description:  PlayerScale save command
+    default:      op
+...
