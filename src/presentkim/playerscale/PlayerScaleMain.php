@@ -144,12 +144,7 @@ class PlayerScaleMain extends PluginBase{
      * @param Player $player
      */
     public function applyTo(Player $player){
-        $result = $this->query('SELECT player_scale FROM player_scale_list WHERE player_name = "' . strtolower($player->getName()) . '";')->fetchArray(SQLITE3_NUM)[0];
-        if ($result !== null) { // When query result is exists
-            $scale = ((int) $result) * 0.01;
-        } else {
-            $scale = ((int) $this->getConfig()->get("default-scale")) * 0.01;
-        }
-        $player->setScale($scale);
+        $configData = $this->getConfig()->getAll();
+        $player->setScale(($configData['playerData'][$player->getLowerCaseName()] ?? $configData['default-speed']) * 0.01);
     }
 }
