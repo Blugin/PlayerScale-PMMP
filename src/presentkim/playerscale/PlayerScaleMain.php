@@ -5,7 +5,6 @@ namespace presentkim\playerscale;
 use pocketmine\command\{
   CommandExecutor, PluginCommand
 };
-use pocketmine\entity\Attribute;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use presentkim\playerscale\{
@@ -25,11 +24,11 @@ class PlayerScaleMain extends PluginBase{
     private $commands = [];
 
     /** @return self */
-    public static function getInstance() : self{
+    public static function getInstance(){
         return self::$instance;
     }
 
-    public function onLoad() : void{
+    public function onLoad(){
         if (self::$instance === null) {
             // register instance
             self::$instance = $this;
@@ -47,14 +46,14 @@ class PlayerScaleMain extends PluginBase{
         $this->db = new \SQLITE3($dataFolder . 'data.sqlite3');
     }
 
-    public function onEnable() : void{
+    public function onEnable(){
         $this->load();
 
         // register event listeners
         $this->getServer()->getPluginManager()->registerEvents(new PlayerEventListener(), $this);
     }
 
-    public function onDisable() : void{
+    public function onDisable(){
         $this->save();
     }
 
@@ -63,11 +62,11 @@ class PlayerScaleMain extends PluginBase{
      *
      * @return \SQLite3Result
      */
-    public function query(string $query) : \SQLite3Result{
+    public function query(string $query){
         return $this->db->query($query);
     }
 
-    public function load() : void{
+    public function load(){
         $dataFolder = $this->getDataFolder();
         if (!file_exists($dataFolder)) {
             mkdir($dataFolder, 0777, true);
@@ -104,7 +103,7 @@ class PlayerScaleMain extends PluginBase{
         $this->registerCommand(new CommandListener($this), Translation::translate('command-playerscale'), 'PlayerScale', 'playerscale.cmd', Translation::translate('command-playerscale@description'), Translation::translate('command-playerscale@usage'), Translation::getArray('command-playerscale@aliases'));
     }
 
-    public function save() : void{
+    public function save(){
         $dataFolder = $this->getDataFolder();
         if (!file_exists($dataFolder)) {
             mkdir($dataFolder, 0777, true);
@@ -132,7 +131,7 @@ class PlayerScaleMain extends PluginBase{
      * @param null            $usageMessage
      * @param array|null      $aliases
      */
-    private function registerCommand(CommandExecutor $executor, $name, $fallback, $permission, $description = "", $usageMessage = null, array $aliases = null) : void{
+    private function registerCommand(CommandExecutor $executor, $name, $fallback, $permission, $description = "", $usageMessage = null, array $aliases = null){
         $command = new PluginCommand($name, $this);
         $command->setExecutor($executor);
         $command->setPermission($permission);
@@ -149,7 +148,7 @@ class PlayerScaleMain extends PluginBase{
     /**
      * @param Player $player
      */
-    public function applyTo(Player $player) : void{
+    public function applyTo(Player $player){
         $result = $this->query('SELECT player_scale FROM player_scale_list WHERE player_name = "' . strtolower($player->getName()) . '";')->fetchArray(SQLITE3_NUM)[0];
         if ($result !== null) { // When query result is exists
             $scale = ((int) $result) * 0.01;

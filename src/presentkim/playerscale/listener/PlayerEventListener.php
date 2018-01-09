@@ -3,7 +3,7 @@
 namespace presentkim\playerscale\listener;
 
 use pocketmine\event\{
-  Listener, player\PlayerJoinEvent, player\PlayerMoveEvent, player\PlayerRespawnEvent
+  Listener, player\PlayerJoinEvent
 };
 use presentkim\playerscale\PlayerScaleMain as Plugin;
 
@@ -17,7 +17,7 @@ class PlayerEventListener implements Listener{
     }
 
     /** @param PlayerJoinEvent $event */
-    public function onPlayerJoinEvent(PlayerJoinEvent $event) : void{
+    public function onPlayerJoinEvent(PlayerJoinEvent $event){
         $this->owner->applyTo($event->getPlayer());
     }
 }
