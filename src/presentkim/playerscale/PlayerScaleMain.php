@@ -69,15 +69,6 @@ class PlayerScaleMain extends PluginBase{
         $this->save();
     }
 
-    /**
-     * @param string $query
-     *
-     * @return \SQLite3Result
-     */
-    public function query(string $query){
-        return $this->db->query($query);
-    }
-
     public function load(){
         $dataFolder = $this->getDataFolder();
         if (!file_exists($dataFolder)) {
@@ -85,14 +76,6 @@ class PlayerScaleMain extends PluginBase{
         }
 
         // load db
-        $this->query("
-            CREATE TABLE IF NOT EXISTS player_scale_list (
-                player_name  TEXT NOT NULL,
-                player_scale INT  NOT NULL CHECK(player_scale > 0),
-                PRIMARY KEY (player_name)
-            );
-            COMMIT;
-        ");
         $this->saveDefaultConfig();
         $this->reloadConfig();
 
