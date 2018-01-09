@@ -28,13 +28,13 @@ class SetSubCommand extends SubCommand{
             $player = Server::getInstance()->getPlayerExact($playerName);
             $result = $this->owner->query("SELECT player_scale FROM player_scale_list WHERE player_name = \"$playerName\";")->fetchArray(SQLITE3_NUM)[0];
             if ($player === null && $result === null) {
-                $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('failure-undefined-player'), $args[0]));
+                $sender->sendMessage($this->prefix . Translation::translate('command-generic-failure@invalid-player', $args[0]));
             } else {
                 $scale = toInt($args[1], null, function (int $i){
                     return $i > 0;
                 });
                 if ($scale === null) {
-                    $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('failure-limit'), $args[1]));
+                    $sender->sendMessage($this->prefix . Translation::translate('command-generic-failure@invalid', $args[1]));
                 } else {
                     if ($scale == ((int) $this->owner->getConfig()->get("default-scale"))) { // Are you set to default scale? I will remove data
                         if ($result === null) { // When first query result is not exists

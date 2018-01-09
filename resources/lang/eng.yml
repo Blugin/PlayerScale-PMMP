@@ -2,6 +2,8 @@
 prefix: "[PlayerScale] "
 
 command-generic-failure@permission : "You do not have permission to use this command"
+command-generic-failure@invalid : "{%0} is invalid value"
+command-generic-failure@invalid-player: "{%0} is invalid player name"
 
 command-playerscale: "playerscale"
 command-playerscale@usage: "/PlayerScale <set | default | list | lang | reload | save>"
@@ -10,36 +12,33 @@ command-playerscale@aliases: ["ps"]
 
 command-playerscale-default: "default"
 command-playerscale-default@usage: "/PlayerScale Default <scale percent>"
-command-playerscale-default@success: "You have successfully set up a default scale to {%0}"
-command-playerscale-default@failure: "{%0} is invalid value, You can't set to scale less than zero"
+command-playerscale-default@success: "Default scale was setted to {%0}"
 command-playerscale-default@aliases: ["d"]
 
 command-playerscale-set: "set"
 command-playerscale-set@usage: "/PlayerScale Set <player name> <scale percent>"
-command-playerscale-set@success-set: "You have successfully set up a scale of {%0} to {%1}"
-command-playerscale-set@success-default: "You have successfully remove scale setting of {%0} (default is remove)"
-command-playerscale-set@failure-limit: "{%0} is invalid value, You can't set to scale less than zero"
-command-playerscale-set@failure-undefined-player: "{%0} is undefined player name"
-command-playerscale-set@failure-default: "{%0} is default value, You can't set to the same value as the default value."
+command-playerscale-set@success-set: "{%0}'s scale was setted to {%1}"
+command-playerscale-set@success-default: "{%0}'s scale setting was removed"
+command-playerscale-set@failure-default: "{%0} is default value"
 command-playerscale-set@aliases: ["s"]
 
 command-playerscale-list: "list"
 command-playerscale-list@usage: "/PlayerScale List <Page>"
-command-playerscale-list@head: "--- Showing scale modifed player list (page {%0} of {%1}) ---"
-command-playerscale-list@item: "    {%0} => {%1}"
+command-playerscale-list@head: "--- List (page {%0} of {%1}) ---"
+command-playerscale-list@item: " - {%0} => {%2}"
 command-playerscale-list@aliases: ["l"]
 
 command-playerscale-lang: "lang"
 command-playerscale-lang@usage: "/PlayerScale Lang <language prefix>"
-command-playerscale-lang@success: "You have successfully load {%0} language file."
-command-playerscale-lang@failure: "{%0} is undefined language prefix"
+command-playerscale-lang@success: "{%0} language file was loaded"
+command-playerscale-lang@failure: "{%0} is invalid language prefix"
 command-playerscale-lang@aliases: ["language"]
 
 command-playerscale-reload: "reload"
-command-playerscale-reload@success: "All data reloaded successfully"
+command-playerscale-reload@success: "All data was reloaded"
 command-playerscale-reload@aliases: ["rl"]
 
 command-playerscale-save: "save"
-command-playerscale-save@success: "All data saved successfully"
+command-playerscale-save@success: "All data was saved"
 command-playerscale-save@aliases: ["sv"]
 ...
