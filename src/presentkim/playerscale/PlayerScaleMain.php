@@ -145,6 +145,6 @@ class PlayerScaleMain extends PluginBase{
      */
     public function applyTo(Player $player){
         $configData = $this->getConfig()->getAll();
-        $player->setScale(($configData['playerData'][$player->getLowerCaseName()] ?? $configData['default-speed']) * 0.01);
+        $player->setScale(($configData['playerData'][$player->getLowerCaseName()] ?? $configData['default-scale']) * 0.01);
     }
 }
