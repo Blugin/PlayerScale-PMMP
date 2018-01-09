@@ -25,7 +25,7 @@ command-playerscale-set@aliases: ["s"]
 command-playerscale-list: "list"
 command-playerscale-list@usage: "/PlayerScale List <페이지>"
 command-playerscale-list@head: "--- 목록 (page {%0} of {%1}) ---"
-command-playerscale-list@item: " - {%0} => {%2}"
+command-playerscale-list@item: " - {%0} => {%1}"
 command-playerscale-list@aliases: ["l"]
 
 command-playerscale-lang: "lang"
