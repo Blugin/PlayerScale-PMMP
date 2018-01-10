@@ -8,7 +8,6 @@ use presentkim\playerscale\{
   PlayerScaleMain as Plugin, util\Translation, command\SubCommand
 };
 use function presentkim\playerscale\util\toInt;
-use function strtolower;
 
 class SetSubCommand extends SubCommand{
 
