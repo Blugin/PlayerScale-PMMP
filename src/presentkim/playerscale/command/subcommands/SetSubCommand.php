@@ -2,22 +2,23 @@
 
 namespace presentkim\playerscale\command\subcommands;
 
-use pocketmine\command\CommandSender;
-use pocketmine\Server;
+use pocketmine\{
+  Server, command\CommandSender
+};
 use presentkim\playerscale\{
-  PlayerScaleMain as Plugin, util\Translation, command\SubCommand
+  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand
 };
 use function presentkim\playerscale\util\toInt;
 
 class SetSubCommand extends SubCommand{
 
-    public function __construct(Plugin $owner){
-        parent::__construct($owner, Translation::translate('prefix'), 'command-playerscale-set', 'playerscale.set.cmd');
+    public function __construct(PoolCommand $owner){
+        parent::__construct($owner, 'set');
     }
 
     /**
      * @param CommandSender $sender
-     * @param array         $args
+     * @param String[]      $args
      *
      * @return bool
      */
@@ -29,27 +30,27 @@ class SetSubCommand extends SubCommand{
             $playerData = $configData['playerData'];
             $exists = isset($playerData[$playerName]);
             if ($player === null && !$exists) {
-                $sender->sendMessage($this->prefix . Translation::translate('command-generic-failure@invalid-player', $args[0]));
+                $sender->sendMessage(Plugin::$prefix . Translation::translate('command-generic-failure@invalid-player', $args[0]));
             } else {
                 $scale = toInt($args[1], null, function (int $i){
                     return $i > 0;
                 });
                 if ($scale === null) {
-                    $sender->sendMessage($this->prefix . Translation::translate('command-generic-failure@invalid', $args[1]));
+                    $sender->sendMessage(Plugin::$prefix . Translation::translate('command-generic-failure@invalid', $args[1]));
                 } else {
                     if ($scale == ((int) $this->owner->getConfig()->get("default-scale"))) { // Are you set to default scale? I will remove dataif ($speed == ((int) $configData['default-speed'])) {
                         if ($exists) {
                             unset($playerData[$playerName]);
                             $this->owner->getConfig()->set('playerData', $playerData);
-                            $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('success-default'), $playerName));
+                            $sender->sendMessage(Plugin::$prefix . $this->translate('success-default', $playerName));
 
                         } else {
-                            $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('failure-default'), $playerName));
+                            $sender->sendMessage(Plugin::$prefix . $this->translate('failure-default', $playerName));
                         }
                     } else {
                         $playerData[$playerName] = $scale;
                         $this->owner->getConfig()->set('playerData', $playerData);
-                        $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('success-set'), $playerName, $scale));
+                        $sender->sendMessage(Plugin::$prefix . $this->translate('success-set', $playerName, $scale));
                     }
                     if (!$player == null) {
                         $this->owner->applyTo($player);

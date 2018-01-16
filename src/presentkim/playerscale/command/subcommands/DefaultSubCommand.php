@@ -4,19 +4,19 @@ namespace presentkim\playerscale\command\subcommands;
 
 use pocketmine\command\CommandSender;
 use presentkim\playerscale\{
-  PlayerScaleMain as Plugin, util\Translation, command\SubCommand
+  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand
 };
 use function presentkim\playerscale\util\toInt;
 
 class DefaultSubCommand extends SubCommand{
 
-    public function __construct(Plugin $owner){
-        parent::__construct($owner, Translation::translate('prefix'), 'command-playerscale-default', 'playerscale.default.cmd');
+    public function __construct(PoolCommand $owner){
+        parent::__construct($owner, 'default');
     }
 
     /**
      * @param CommandSender $sender
-     * @param array         $args
+     * @param String[]      $args
      *
      * @return bool
      */
@@ -26,10 +26,10 @@ class DefaultSubCommand extends SubCommand{
                 return $i >= 0;
             });
             if ($default === null) {
-                $sender->sendMessage($this->prefix . Translation::translate('command-generic-failure@invalid', $args[0]));
+                $sender->sendMessage(Plugin::$prefix . Translation::translate('command-generic-failure@invalid', $args[0]));
             } else {
                 $this->owner->getConfig()->set('default-scale', $default);
-                $sender->sendMessage($this->prefix . Translation::translate($this->getFullId('success'), $default));
+                $sender->sendMessage(Plugin::$prefix . $this->translate('success', $default));
             }
             return true;
         }
