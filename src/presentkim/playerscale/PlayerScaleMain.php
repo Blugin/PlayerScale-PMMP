@@ -29,6 +29,7 @@ class PlayerScaleMain extends PluginBase{
         if (self::$instance === null) {
             self::$instance = $this;
             $this->getServer()->getLoader()->loadClass('presentkim\playerscale\util\Utils');
+            Translation::loadFromResource($this->getResource('lang/eng.yml'), true);
 
             $sqlite3Path = "{$this->getDataFolder()}data.sqlite3";
             if (file_exists($sqlite3Path)) {
@@ -48,8 +49,6 @@ class PlayerScaleMain extends PluginBase{
                 unset($db, $results, $result);
                 unlink($sqlite3Path);
             }
-
-            Translation::loadFromResource($this->getResource('lang/eng.yml'), true);
         }
     }
 
