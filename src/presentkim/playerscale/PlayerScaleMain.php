@@ -52,6 +52,9 @@ class PlayerScaleMain extends PluginBase{
                 unset($db, $results, $result);
                 unlink($sqlite3Path);
             }
+
+            // load default lang
+            Translation::loadFromResource($this->getResource('lang/eng.yml'), true);
         }
     }
 
@@ -86,9 +89,6 @@ class PlayerScaleMain extends PluginBase{
         } else {
             Translation::load($langfilename);
         }
-
-        // load default lang
-        Translation::loadFromResource($this->getResource('lang/eng.yml'), true);
 
         // unregister commands
         foreach ($this->commands as $command) {
