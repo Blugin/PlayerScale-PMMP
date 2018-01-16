@@ -9,22 +9,23 @@ permissions:
   playerscale.cmd:
     description:  PlayerScale main command
     default:      op
-  playerscale.default.cmd:
-    description:  PlayerScale default command
-    default:      op
-  playerscale.set.cmd:
-    description:  PlayerScale set command
-    default:      op
-  playerscale.list.cmd:
-    description:  PlayerScale list command
-    default:      op
-  playerscale.lang.cmd:
-    description:  PlayerScale lang command
-    default:      op
-  playerscale.reload.cmd:
-    description:  PlayerScale reload command
-    default:      op
-  playerscale.save.cmd:
-    description:  PlayerScale save command
-    default:      op
+    children:
+      playerscale.cmd.default:
+        description:  PlayerScale command - default
+        default:      op
+      playerscale.cmd.set:
+        description:  PlayerScale command - set
+        default:      op
+      playerscale.cmd.list:
+        description:  PlayerScale command -list
+        default:      op
+      playerscale.cmd.lang:
+        description:  PlayerScale command - lang
+        default:      op
+      playerscale.cmd.reload:
+        description:  PlayerScale command - reload
+        default:      op
+      playerscale.cmd.save:
+        description:  PlayerScale command - save
+        default:      op
 ...
