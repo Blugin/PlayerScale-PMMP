@@ -6,39 +6,41 @@ command-generic-failure@invalid : "{%0}는 잘못된 값입니다"
 command-generic-failure@invalid-player: "{%0}는 잘못된 플레이어 명입니다."
 
 command-playerscale: "playerscale"
-command-playerscale@usage: "/PlayerScale <set | default | list | lang | reload | save>"
+command-playerscale@usage: "/playerscale <set | default | list | lang | reload | save>"
 command-playerscale@description: "PlayerScale 메인 명령어"
 command-playerscale@aliases: ["ps"]
 
 command-playerscale-default: "default"
-command-playerscale-default@usage: "/PlayerScale Default <크기 퍼센트>"
+command-playerscale-default@usage: "/playerscale Default <크기 퍼센트>"
 command-playerscale-default@success: "기본 크기가 {%0}로 설정되었습니다"
 command-playerscale-default@aliases: ["d"]
 
 command-playerscale-set: "set"
-command-playerscale-set@usage: "/PlayerScale Set <플레이어명> <크기 퍼센트>"
+command-playerscale-set@usage: "/playerscale Set <플레이어명> <크기 퍼센트>"
 command-playerscale-set@success-set: "{%0}님의 크기가 {%1}로 설정되었습니다."
 command-playerscale-set@success-default: "{%0}님의 크기 설정이 제거되었습니다."
 command-playerscale-set@failure-default: "{%0}는 기본값입니다"
 command-playerscale-set@aliases: ["s"]
 
 command-playerscale-list: "list"
-command-playerscale-list@usage: "/PlayerScale List <페이지>"
+command-playerscale-list@usage: "/playerscale List <페이지>"
 command-playerscale-list@head: "--- 목록 (page {%0} of {%1}) ---"
 command-playerscale-list@item: " - {%0} => {%1}"
 command-playerscale-list@aliases: ["l"]
 
 command-playerscale-lang: "lang"
-command-playerscale-lang@usage: "/PlayerScale Lang <언어명>"
+command-playerscale-lang@usage: "/playerscale Lang <언어명>"
 command-playerscale-lang@success: "{%0}언어 파일을 불러왔습니다."
 command-playerscale-lang@failure: "{%0}는 잘못된 언어명입니다."
 command-playerscale-lang@aliases: ["language"]
 
 command-playerscale-reload: "reload"
+command-playerscale-reload@usage: "/playerscale Reload"
 command-playerscale-reload@success: "모든 데이터를 불러왔습니다."
 command-playerscale-reload@aliases: ["rl"]
 
 command-playerscale-save: "save"
+command-playerscale-save@usage: "/playerscale Save"
 command-playerscale-save@success: "모든 데이터를 저장했습니다."
 command-playerscale-save@aliases: ["sv"]
 ...
