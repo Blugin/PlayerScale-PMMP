@@ -52,9 +52,9 @@ class PlayerScaleMain extends PluginBase{
         $langfilename = $dataFolder . 'lang.yml';
         if (!file_exists($langfilename)) {
             $resource = $this->getResource('lang/eng.yml');
-            Translation::loadFromResource($resource);
-            stream_copy_to_stream($resource, $fp = fopen("{$dataFolder}lang.yml", "wb"));
+            fwrite($fp = fopen("{$dataFolder}lang.yml", "wb"), $contents = stream_get_contents($resource));
             fclose($fp);
+            Translation::loadFromContents($contents);
         } else {
             Translation::load($langfilename);
         }
