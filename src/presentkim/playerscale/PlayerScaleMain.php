@@ -85,6 +85,9 @@ class PlayerScaleMain extends PluginBase{
             Translation::load($langfilename);
         }
 
+        // load default lang
+        Translation::loadFromResource($this->getResource('lang/eng.yml'), true);
+
         // unregister commands
         foreach ($this->commands as $command) {
             $this->getServer()->getCommandMap()->unregister($command);
