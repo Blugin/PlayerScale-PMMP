@@ -68,7 +68,6 @@ class PlayerScaleMain extends PluginBase{
             mkdir($dataFolder, 0777, true);
         }
 
-        $this->saveDefaultConfig();
         $this->reloadConfig();
 
         $langfilename = $dataFolder . 'lang.yml';
@@ -93,7 +92,7 @@ class PlayerScaleMain extends PluginBase{
         if (!file_exists($dataFolder)) {
             mkdir($dataFolder, 0777, true);
         }
-        
+
         $this->saveConfig();
     }
 
