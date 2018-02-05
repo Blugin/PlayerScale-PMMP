@@ -20,14 +20,14 @@ class PlayerScaleMain extends PluginBase{
     public static $prefix = '';
 
     /** @return self */
-    public static function getInstance(){
+    public static function getInstance() : self{
         return self::$instance;
     }
 
     /** @var PoolCommand */
     private $command;
 
-    public function onLoad(){
+    public function onLoad() : void{
         if (self::$instance === null) {
             self::$instance = $this;
             $this->getServer()->getLoader()->loadClass('presentkim\playerscale\util\Utils');
@@ -35,7 +35,7 @@ class PlayerScaleMain extends PluginBase{
         }
     }
 
-    public function onEnable(){
+    public function onEnable() : void{
         $this->load();
         $this->getServer()->getPluginManager()->registerEvents(new PlayerEventListener(), $this);
     }
@@ -44,7 +44,7 @@ class PlayerScaleMain extends PluginBase{
         $this->save();
     }
 
-    public function load(){
+    public function load() : void{
         $dataFolder = $this->getDataFolder();
         if (!file_exists($dataFolder)) {
             mkdir($dataFolder, 0777, true);
@@ -67,7 +67,7 @@ class PlayerScaleMain extends PluginBase{
     }
 
 
-    public function save(){
+    public function save() : void{
         $dataFolder = $this->getDataFolder();
         if (!file_exists($dataFolder)) {
             mkdir($dataFolder, 0777, true);
@@ -76,7 +76,7 @@ class PlayerScaleMain extends PluginBase{
         $this->saveConfig();
     }
 
-    public function reloadCommand(){
+    public function reloadCommand() : void{
         if ($this->command == null) {
             $this->command = new PoolCommand($this, 'playerscale');
             $this->command->createSubCommand(DefaultSubCommand::class);
