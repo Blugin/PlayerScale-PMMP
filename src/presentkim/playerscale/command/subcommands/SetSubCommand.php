@@ -6,9 +6,8 @@ use pocketmine\{
   Server, command\CommandSender
 };
 use presentkim\playerscale\{
-  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand
+  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand, util\Utils
 };
-use function presentkim\playerscale\util\toInt;
 
 class SetSubCommand extends SubCommand{
 
@@ -32,7 +31,7 @@ class SetSubCommand extends SubCommand{
             if ($player === null && !$exists) {
                 $sender->sendMessage(Plugin::$prefix . Translation::translate('command-generic-failure@invalid-player', $args[0]));
             } else {
-                $scale = toInt($args[1], null, function (int $i){
+                $scale = Utils::toInt($args[1], null, function (int $i){
                     return $i > 0;
                 });
                 if ($scale === null) {
