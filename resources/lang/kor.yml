@@ -6,7 +6,8 @@ command-generic-failure@invalid : "{%0}는 잘못된 값입니다"
 command-generic-failure@invalid-player: "{%0}는 잘못된 플레이어 명입니다"
 
 command-playerscale: "playerscale"
-command-playerscale@usage: "/playerscale <set | default | list | lang | reload | save>"
+command-playerscale@usage: "/playerscale <{%0}>"
+command-playerscale@usage-separator: " | "
 command-playerscale@description: "PlayerScale 메인 명령어"
 command-playerscale@aliases: ["ps"]
 
