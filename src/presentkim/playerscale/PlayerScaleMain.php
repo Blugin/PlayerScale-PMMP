@@ -4,12 +4,12 @@ namespace presentkim\playerscale;
 
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use presentkim\playerscale\util\Translation;
-use presentkim\playerscale\listener\PlayerEventListener;
 use presentkim\playerscale\command\PoolCommand;
 use presentkim\playerscale\command\subcommands\{
   DefaultSubCommand, SetSubCommand, ListSubCommand, LangSubCommand, ReloadSubCommand, SaveSubCommand
 };
+use presentkim\playerscale\util\Translation;
+use presentkim\playerscale\listener\PlayerEventListener;
 
 class PlayerScaleMain extends PluginBase{
 

@@ -3,8 +3,12 @@
 namespace presentkim\playerscale\command\subcommands;
 
 use pocketmine\command\CommandSender;
-use presentkim\playerscale\{
-  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand, util\Utils
+use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\command\{
+  PoolCommand, SubCommand
+};
+use presentkim\playerscale\util\{
+  Translation, Utils
 };
 
 class DefaultSubCommand extends SubCommand{

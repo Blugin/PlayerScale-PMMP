@@ -3,9 +3,11 @@
 namespace presentkim\playerscale\command\subcommands;
 
 use pocketmine\command\CommandSender;
-use presentkim\playerscale\{
-  command\PoolCommand, PlayerScaleMain as Plugin, util\Translation, command\SubCommand
+use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\command\{
+  PoolCommand, SubCommand
 };
+use presentkim\playerscale\util\Translation;
 
 class LangSubCommand extends SubCommand{
 
@@ -32,7 +34,7 @@ class LangSubCommand extends SubCommand{
                 fclose($fp);
                 Translation::loadFromContents($contents);
                 $this->plugin->reloadCommand();
-                
+
                 $sender->sendMessage(Plugin::$prefix . $this->translate('success', $args[0]));
             } else {
                 $sender->sendMessage(Plugin::$prefix . $this->translate('failure', $args[0]));

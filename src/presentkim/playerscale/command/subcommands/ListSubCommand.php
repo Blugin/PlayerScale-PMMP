@@ -2,11 +2,13 @@
 
 namespace presentkim\playerscale\command\subcommands;
 
-use pocketmine\command\CommandSender;
 use pocketmine\Server;
-use presentkim\playerscale\{
-  command\PoolCommand, PlayerScaleMain as Plugin, command\SubCommand, util\Utils
+use pocketmine\command\CommandSender;
+use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\command\{
+  PoolCommand, SubCommand
 };
+use presentkim\playerscale\util\Utils;
 
 class ListSubCommand extends SubCommand{
 
