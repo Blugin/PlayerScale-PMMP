@@ -11,7 +11,7 @@ use presentkim\playerscale\command\subcommands\{
 use presentkim\playerscale\util\Translation;
 use presentkim\playerscale\listener\PlayerEventListener;
 
-class PlayerScaleMain extends PluginBase{
+class PlayerScale extends PluginBase{
 
     /** @var self */
     private static $instance = null;

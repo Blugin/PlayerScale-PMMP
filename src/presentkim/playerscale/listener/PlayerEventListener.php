@@ -4,7 +4,7 @@ namespace presentkim\playerscale\listener;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\PlayerScale as Plugin;
 
 class PlayerEventListener implements Listener{
 

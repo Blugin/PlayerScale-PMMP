@@ -2,7 +2,7 @@
 
 namespace presentkim\playerscale\util;
 
-use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\PlayerScale as Plugin;
 
 class Translation{
 

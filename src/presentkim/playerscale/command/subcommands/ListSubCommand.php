@@ -4,7 +4,7 @@ namespace presentkim\playerscale\command\subcommands;
 
 use pocketmine\Server;
 use pocketmine\command\CommandSender;
-use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\PlayerScale as Plugin;
 use presentkim\playerscale\command\{
   PoolCommand, SubCommand
 };

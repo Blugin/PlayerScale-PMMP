@@ -5,7 +5,7 @@ namespace presentkim\playerscale\command;
 use pocketmine\command\{
   Command, PluginCommand, CommandExecutor, CommandSender, ConsoleCommandSender
 };
-use presentkim\playerscale\PlayerScaleMain as Plugin;
+use presentkim\playerscale\PlayerScale as Plugin;
 use presentkim\playerscale\util\Translation;
 
 class PoolCommand extends PluginCommand implements CommandExecutor{
