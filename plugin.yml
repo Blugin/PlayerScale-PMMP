@@ -19,7 +19,7 @@ permissions:
         description:  PlayerScale command - set
         default:      op
       playerscale.cmd.list:
-        description:  PlayerScale command -list
+        description:  PlayerScale command - list
         default:      op
       playerscale.cmd.lang:
         description:  PlayerScale command - lang
