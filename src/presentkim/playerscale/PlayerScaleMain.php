@@ -19,13 +19,13 @@ class PlayerScaleMain extends PluginBase{
     /** @var string */
     public static $prefix = '';
 
-    /** @var PoolCommand */
-    private $command;
-
     /** @return self */
     public static function getInstance(){
         return self::$instance;
     }
+
+    /** @var PoolCommand */
+    private $command;
 
     public function onLoad(){
         if (self::$instance === null) {
@@ -100,5 +100,19 @@ class PlayerScaleMain extends PluginBase{
     public function applyTo(Player $player){
         $configData = $this->getConfig()->getAll();
         $player->setScale(($configData['playerData'][$player->getLowerCaseName()] ?? $configData['default-scale']) * 0.01);
+    }
+
+    /**
+     * @param string $name = ''
+     *
+     * @return PoolCommand
+     */
+    public function getCommand(string $name = '') : PoolCommand{
+        return $this->command;
+    }
+
+    /** @param PoolCommand $command */
+    public function setCommand(PoolCommand $command) : void{
+        $this->command = $command;
     }
 }
