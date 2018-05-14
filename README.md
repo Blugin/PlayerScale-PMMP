@@ -3,7 +3,6 @@
 [![icon/192x192](meta/icon/192x192.png?raw=true)]()
 
 [![License](https://img.shields.io/github/license/PMMPPlugin/PlayerScale.svg?label=License)](LICENSE)
-[![Poggit](https://poggit.pmmp.io/ci.shield/PMMPPlugin/PlayerScale/PlayerScale)](https://poggit.pmmp.io/ci/PMMPPlugin/PlayerScale)
 [![Release](https://img.shields.io/github/release/PMMPPlugin/PlayerScale.svg?label=Release)](https://github.com/PMMPPlugin/PlayerScale/releases/latest)
 [![Download](https://img.shields.io/github/downloads/PMMPPlugin/PlayerScale/total.svg?label=Download)](https://github.com/PMMPPlugin/PlayerScale/releases/latest)
 
